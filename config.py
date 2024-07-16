@@ -7,7 +7,9 @@ import os
 app = Flask(__name__)
 
 # Configurazione del database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://dbuser:AKn$oI7x4XC.YWxW@cloud-services.demos.mulesoft.com:32692/sedb'
+db_user = os.environ["DB_USER"]
+db_password = os.environ["DB_PASSWORD"]
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://{db_user}:{db_password}@cloud-services.demos.mulesoft.com:32692/sedb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Inizializza SQLAlchemy
